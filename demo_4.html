@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+		<title></title>
+		<script src="js/jquery-1.10.2.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/fastclick.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/xiangyingshi.js" type="text/javascript" charset="utf-8"></script>
+		<style type="text/css">
+			*{
+				margin: 0;
+				padding: 0;
+			}
+			#canvas{
+				background: antiquewhite;
+			}
+		</style>
+	</head>
+	<body>
+		<canvas id="canvas" width="" height=""></canvas>
+	</body>
+	<script type="text/javascript">
+		var canvas=$("#canvas")[0];
+		var ctx=canvas.getContext("2d");
+		var width=$(window).width();
+		var height=$(window).height();
+		//圆心初始X坐标
+		var arc_w=width/2;
+		//圆心初始Y坐标
+		var arc_h=height/2;
+		var r=20;//圆的半径
+		var g=.2;//重力加速度
+		var a_x=0;//实际X轴加速度
+		var a_y=0;//实际Y轴加速度
+		var v_x=0;//初始X轴速度
+		var v_y=0;//初始Y轴速度
+		var move_x=0;//初始X轴圆心位移；
+		var move_y=0;//初始Y轴圆心位移；
+		canvas.width=width;
+		canvas.height=height;
+//		ctx.arc(width/2,height/2,r,0,Math.PI*2,false);
+//		fillstyle=ctx.createRadialGradient(width/2,height/2,0,width/2,height/2,r);
+//		fillstyle.addColorStop(0,"gold");
+//		fillstyle.addColorStop(1,"rgb(60,60,60)");
+//		ctx.fillStyle=fillstyle
+//		ctx.fill();
+		
+		window.addEventListener("deviceorientation",function(event){//监听屏蔽转动
+			var alpha=event.alpha;
+			var beta=event.beta;
+			var gamma=event.gamma;
+			//var arr=arc_cir(gamma,beta);
+			ctx.clearRect(0,0,width,height);
+//			arc_w+=arr[0];
+//			arc_h+=arr[1];
+//			if(arc_w>width){//保证圆心坐标在屏幕内,碰到边上时，速度和加速度都为0
+//				arc_w=width;
+//			}
+//			if(arc_w<0){
+//				arc_w=0;
+//			}
+//			if(arc_h>height){
+//				arc_h=height;
+//			}
+//			if(arc_h<0){
+//				arc_h=0;
+//			}
+			
+			//drawing(arc_w,arc_h,r)
+			ctx.font="40px"
+			ctx.fillText(gamma,width/2,50);
+			ctx.fillText( beta,width/2,150);
+		},false)
+		
+		function drawing(para1,para2,para3){//画圆并渲染，需要知道圆心位置和半径,para1圆心X坐标，para2圆心Y坐标
+			ctx.beginPath();
+			ctx.arc(para1,para2,para3,0,Math.PI*2,false);
+			fillstyle=ctx.createRadialGradient(para1,para2,0,para1,para2,para3);
+			fillstyle.addColorStop(0,"gold");
+			fillstyle.addColorStop(1,"rgb(60,60,60)");
+			ctx.fillStyle=fillstyle
+			ctx.fill();
+		}
+		
+		function arc_cir(para1,para2){//求圆心坐标，通过位移公式,para1用于求X轴坐标，通过gamma求取，para2用于求Y轴坐标，通过beta求取
+			a_x=g*Math.sin(para1);
+			v_x+=a_x;
+			move_x+=v_x;
+			a_y=-(g*Math.sin(para2));
+			v_y+=a_y;
+			move_y+=v_y;
+			return [move_x,move_y];
+		}
+	</script>
+</html>

@@ -1,0 +1,125 @@
+/*
+YUI 3.18.1 (build f7e7bcb)
+Copyright 2014 Yahoo! Inc. All rights reserved.
+Licensed under the BSD License.
+http://yuilibrary.com/license/
+*/
+
+html{color:#000;background:#FFF}body,div,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,h6,pre,code,form,fieldset,legend,input,textarea,p,blockquote,th,td{margin:0;padding:0}table{border-collapse:collapse;border-spacing:0}fieldset,img{border:0}address,caption,cite,code,dfn,em,strong,th,var{font-style:normal;font-weight:normal}ol,ul{list-style:none}caption,th{text-align:left}h1,h2,h3,h4,h5,h6{font-size:100%;font-weight:normal}q:before,q:after{content:''}abbr,acronym{border:0;font-variant:normal}sup{vertical-align:text-top}sub{vertical-align:text-bottom}input,textarea,select{font-family:inherit;font-size:inherit;font-weight:inherit;*font-size:100%}legend{color:#000}#yui3-css-stamp.cssreset{display:none}
+a{
+	text-decoration: none;
+}
+a:hover{
+	text-decoration: none;
+}
+body{
+	font-family: "Microsoft YaHei","微软雅黑";
+}
+@media only screen and (max-width: 320px) {
+	html {
+		font-size: 16px !important;
+	}
+}
+
+@media only screen and (min-width: 1920px) {
+	html {
+		font-size: 96px !important;
+	}
+}
+.swiper-slide_1{
+	background: url(../images/0.png) no-repeat center center;
+	background-size: cover;
+}
+/*弹窗*/
+.nav{
+	position: fixed;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	height: 3rem;
+	background: rgba(155,155,155,1);
+	z-index: 999999;
+}
+.nav_ul{
+	font-size: 0;
+	height: 3rem;
+}
+.nav_li{
+	display: inline-block;
+	box-sizing: border-box;
+	width: 20%;
+	text-align: center;
+	height: 100%;
+}
+.nav_li a{
+	font-size: .8rem;
+	color: #333333;
+	display: block;
+	height: 100%;
+	line-height: 3rem;
+}
+.learn_more,.zixun,.form,.link{
+	position: absolute;
+	bottom: 3rem;
+	height: 0;
+	overflow: hidden;
+	background:rgba(155,155,155,.4);
+	left: 0;
+	right: 0;
+	transition: all .5s ease-in-out;
+	z-index: 999999;
+}
+.learn_more_p{
+	text-align: center;
+	margin: 10px auto;
+}
+/*重新定义导航位置和模样*/
+.swiper-container-vertical>.swiper-pagination-bullets{
+	bottom: 3rem;
+	height: 0;
+	overflow: hidden;
+	background:rgba(155,155,155,.4);
+	left: 0;
+	right: 0;
+	top: initial;
+	transform: initial;
+	-webkit-transform: initial;
+	transition: all .5s ease-in-out;
+}
+
+/*重新定义导航点*/
+.swiper-container-vertical>.swiper-pagination-bullets .swiper-pagination-bullet{
+	width: 5rem;
+	height: 5rem;
+	background: rgba(0,0,0,.5);
+	display: inline-block;
+	line-height: 5rem;
+	opacity: initial;
+}
+.swiper-container-vertical>.swiper-pagination-bullets .swiper-pagination-bullet-active{
+	background: #C08020;
+}
+/*关闭按钮修饰*/
+.close_uni{
+	position: absolute;
+	bottom: 10px;
+	right: 10px;
+	width: 3rem;
+	height: 3rem;
+	border-radius: 100%;
+	cursor: pointer;
+	background: rgba(239,143,107,.8);
+	line-height: 3rem;
+	text-align: center;
+}
+
+
+.swiper-slide img {
+	position: absolute;
+	left: 0;
+	right: 0;
+	bottom: 0;
+	top: 0;
+	margin: 0 auto;
+	z-index: -999;
+}
